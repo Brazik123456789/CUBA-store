@@ -1,0 +1,3 @@
+alter table STORE_ORDER alter column ORDER_POSITIONS_ID rename to ORDER_POSITIONS_ID__U43217 ^
+alter table STORE_ORDER drop constraint FK_STORE_ORDER_ON_ORDER_POSITIONS ;
+drop index IDX_STORE_ORDER_ON_ORDER_POSITIONS ;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://orderEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.store.web.screens.order">
+    <data>
+        <instance id="orderDc"
+                  class="com.company.store.entity.Order">
+            <view extends="_local">
+                <property name="client" view="_minimal">
+                    <property name="fullName"/>
+                </property>
+                <property name="positions" view="_minimal">
+                    <property name="product" view="_minimal">
+                        <property name="price"/>
+                    </property>
+                    <property name="count"/>
+                </property>
+                <property name="sum"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="orderDc">
+            <column width="350px">
+                <textField id="orderNumberField" property="orderNumber"/>
+                <pickerField id="clientField" property="client">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="sumField" property="sum"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

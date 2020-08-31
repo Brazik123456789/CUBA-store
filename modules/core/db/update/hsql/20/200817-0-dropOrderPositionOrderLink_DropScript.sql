@@ -1,0 +1,1 @@
+drop table STORE_ORDER_POSITION_ORDER_LINK__U38185 if exists cascade ;
